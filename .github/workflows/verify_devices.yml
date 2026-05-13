@@ -1,9 +1,12 @@
 name: Verify New Devices
 on:
+  push:
+    branches: [ "main" ]
   schedule:
-     - cron: '*/30 * * * *' # רץ כל חצי שעה
-  workflow_dispatch:      # הרצה ידנית בלחיצת כפתור
-
+    # רץ כל 30 דקות (לפי שעון UTC)
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # מאפשר לך להריץ ידנית כשבא לך
+  
 jobs:
   verify:
     runs-on: ubuntu-latest
